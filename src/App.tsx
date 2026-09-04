@@ -93,7 +93,10 @@ export default function App() {
   }, []);
 
   const navigateToPublic = useCallback(() => {
-    if (window.location.pathname === '/admin' || window.location.hash.includes('admin')) {
+    if (
+      window.location.pathname.startsWith('/admin') ||
+      window.location.hash.includes('admin')
+    ) {
       window.history.pushState(null, '', '/');
     }
     setIsAdminRoute(false);
